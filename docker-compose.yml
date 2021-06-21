@@ -29,4 +29,3 @@ services:
 networks:
   swarm:
     driver: "bridge"
-    name: "swarm"
