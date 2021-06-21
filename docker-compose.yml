@@ -1,0 +1,32 @@
+# remember to keep the .env file in the same directory
+version: "3.7"
+services:
+  backend:
+    container_name: backend
+    build:
+        context: ./to-do
+    working_dir: /app
+    ports:
+      - '8000:8000'
+    volumes:
+      - './to-do:/app'
+    command: pipenv run python manage.py runserver 0:8000
+    networks:
+      - swarm
+    restart: always
+  frontend:
+    container_name: frontend
+    image: node:14.15.0
+    working_dir: /app
+    ports:
+      - '8080:8080'
+    volumes:
+      - './todo-frontend:/app'
+    command: /bin/sh -c "npm i && npm run serve"
+    networks:
+      - swarm
+    restart: always
+networks:
+  swarm:
+    driver: "bridge"
+    name: "swarm"
