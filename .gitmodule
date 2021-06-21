@@ -1,0 +1,7 @@
+[submodule "to-do"]
+	path = to-do
+	url = https://github.com/ShikherSinghal/to-do.git
+[submodule "todo-frontend"]
+	path = todo-frontend
+	url = https://github.com/ShikherSinghal/todo-frontend.git
+
