@@ -1,5 +1,5 @@
 # remember to keep the .env file in the same directory
-version: "3.7"
+version: "3"
 services:
   backend:
     container_name: backend
