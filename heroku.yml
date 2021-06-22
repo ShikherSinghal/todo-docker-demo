@@ -1,7 +1,11 @@
 build:
   docker:
-    frontend: todo-frontend/Dockerfile
-  docker:
     backend: to-do/Dockerfile
+    frontend: todo-frontend/Dockerfile
+release:
+  command:
+    - ./deployment-tasks.sh
+  image: worker
 run:
-  web: bundle exec puma -C config/puma.rb
+  frontend: /bin/sh -c "npm i && npm run serve"
+  backend: python manage.py  runserver 0:8080
